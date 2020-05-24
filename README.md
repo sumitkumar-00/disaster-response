@@ -32,11 +32,9 @@ Following packages were used in this project
 * nltk
 * pickle
 
-There is pipfile in the project directory that can be used to install required packages by executing `pipenv install`
- in the project's root directory 
-
 ### Installation <a name='Installation'></a>
-Clone this git repository by executing `git clone https://github.com/sumitkumar-00/disaster-response` in console
+* Clone this git repository by executing `git clone https://github.com/sumitkumar-00/disaster-response`
+* Install required packages by executing `pipenv install` in the project's root directory. 
 ### Executing Program <a name='Execution'></a>
 1. Run following commands in project't root directory
    1. To execute ETL pipeline `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
