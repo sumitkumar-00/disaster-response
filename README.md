@@ -37,9 +37,9 @@ Following packages were used in this project
 * Install required packages by executing `pipenv install` in the project's root directory. 
 ### Executing Program <a name='Execution'></a>
 1. Run following commands in project't root directory
-   1. To execute ETL pipeline `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
-   2. To execute ML pipeline `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
-   3. To run web app execute `python run.py` from app's directory
+   1. To execute ETL pipeline `pipenv run python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+   2. To execute ML pipeline `pipenv run python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
+   3. To run web app execute `pipenv run python run.py` from app's directory
 2. Go to http://127.0.0.1:3001 to check out the app 
 ## Authors <a name='Authors'></a>
 . [Sumit Kumar](https://github.com/sumitkumar-00)
