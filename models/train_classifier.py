@@ -6,7 +6,7 @@ import pickle
 
 nltk.download(['punkt', 'wordnet', 'stopwords'])
 import re
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.multiclass import OneVsRestClassifier
@@ -37,16 +37,23 @@ def load_data(database_filepath):
 
 def build_model():
     """
-    build a machine learning pipeline
-    :return: pipeline
+    build a machine learning pipeline and use GridSearch to find best parameters
+    :return: GridSearch CV object
     """
     pipeline = Pipeline([
         ('vectorizer', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
-        ('classifier', OneVsRestClassifier(AdaBoostClassifier(random_state=7, n_estimators=50)))
+        ('classifier', OneVsRestClassifier(AdaBoostClassifier(random_state=7)))
     ])
 
-    return pipeline
+    parameters = {
+        'tfidf__smooth_idf': [True, False],
+        'vectorizer__max_features': [None, 5000],
+        'vectorizer__max_df': [0.7, 1.0]
+    }
+
+    cv = GridSearchCV(pipeline, param_grid=parameters, cv=3)
+    return cv
 
 
 # tokenization function
