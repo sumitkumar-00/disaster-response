@@ -32,7 +32,8 @@ Following packages were used in this project
 * nltk
 * pickle
 
-There is pipfile in the project directory that can be used to install required packages
+There is pipfile in the project directory that can be used to install required packages by executing `pipenv install`
+ in the project's root directory 
 
 ### Installation <a name='Installation'></a>
 Clone this git repository by executing `git clone https://github.com/sumitkumar-00/disaster-response` in console
